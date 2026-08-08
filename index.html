@@ -3,7 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LexColombia Pro - Portal Jurídico Inteligente</title>
+    <title>LexColombia Pro — Códigos, Leyes y Artículos de Colombia 2026 | Portal Jurídico</title>
+    <meta name="description" content="Consulta códigos y leyes de Colombia actualizados: Código Penal, Civil, Laboral, de Comercio, Constitución, CGP y más. Busca artículos por número, lee el texto completo y guarda tus lecturas. Legislación colombiana 2026.">
+    <meta name="keywords" content="código penal colombia, código civil colombia, constitución política, código sustantivo del trabajo, código de comercio, código general del proceso, leyes colombia, artículos ley, legislación colombiana 2026, jurisprudencia">
+    <meta name="author" content="LexColombia Pro">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lexcolombia.pro/">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:title" content="LexColombia Pro — Códigos y Leyes de Colombia 2026">
+    <meta property="og:description" content="Portal jurídico interactivo: busca y lee artículos de códigos y leyes colombianas, calcula plazos hábiles y guarda tus lecturas.">
+    <meta property="og:site_name" content="LexColombia Pro">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LexColombia Pro — Legislación Colombiana">
+    <meta name="twitter:description" content="Códigos, leyes y artículos de Colombia. Búsqueda inteligente y lectura en línea.">
+
+    <!-- Structured Data: WebSite + SearchAction (para aparecer en búsquedas de Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "LexColombia Pro",
+      "alternateName": "Portal Jurídico Colombia",
+      "url": "https://lexcolombia.pro/",
+      "description": "Portal de consulta de códigos, leyes y artículos de la República de Colombia. Legislación actualizada 2026.",
+      "inLanguage": "es-CO",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://lexcolombia.pro/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "LexColombia Pro",
+      "description": "Consulta interactiva de normatividad colombiana: Constitución, Código Penal, Civil, Laboral, Comercio y más.",
+      "areaServed": { "@type": "Country", "name": "Colombia" },
+      "availableLanguage": "Spanish"
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -44,21 +93,31 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(51, 65, 85, 0.8);
         }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-        .dark ::-webkit-scrollbar-thumb {
-            background: #475569;
-        }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #475569; }
+
+        /* Estilos suaves para resultados CSE de Google */
+        .gsc-control-cse, .gsc-control-cse * { font-family: "Plus Jakarta Sans", sans-serif !important; }
+        .gsc-control-cse { background: transparent !important; border: none !important; padding: 0 !important; }
+        .gsc-result { background: transparent !important; border: none !important; border-bottom: 1px solid #e2e8f0 !important; padding: 16px 0 !important; }
+        .dark .gsc-result { border-bottom-color: #1e293b !important; }
+        .gsc-result .gs-title { font-size: 15px !important; font-weight: 700 !important; color: #0f172a !important; text-decoration: none !important; }
+        .dark .gsc-result .gs-title { color: #f1f5f9 !important; }
+        .gsc-result .gs-title:hover { color: #16a34a !important; }
+        .gsc-result .gs-snippet { font-size: 13px !important; color: #475569 !important; line-height: 1.55 !important; }
+        .dark .gsc-result .gs-snippet { color: #94a3b8 !important; }
+        .gsc-result .gs-visibleUrl { color: #16a34a !important; font-size: 11px !important; }
+        .gsc-cursor-box { margin-top: 16px !important; }
+        .gsc-cursor-page { color: #16a34a !important; }
+        .gsc-results-wrapper-visible { padding: 0 !important; }
+        .gs-webResult .gs-visibleUrl-short { display: none !important; }
+        .gsc-above-wrapper-area { border: none !important; }
+        .gsc-result-info { color: #64748b !important; font-size: 12px !important; }
+        .dark .gsc-result-info { color: #94a3b8 !important; }
+        .gcsc-find-more-on-google { display: none !important; }
+        .gsc-adBlock { display: none !important; }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans min-h-screen flex flex-col transition-colors duration-300">
@@ -66,7 +125,7 @@
     <!-- Top Navigation -->
     <header class="sticky top-0 z-50 glass-card border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="resetToHome()">
                 <div class="bg-emerald-600 text-white p-2.5 rounded-xl shadow-lg shadow-emerald-500/30 flex items-center justify-center">
                     <i class="fa-solid fa-balance-scale text-xl"></i>
                 </div>
@@ -76,21 +135,20 @@
                 </div>
             </div>
 
-            <!-- Search bar header -->
             <div class="hidden md:flex flex-1 max-w-md mx-8">
                 <div class="relative w-full">
                     <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                         <i class="fa-solid fa-search"></i>
                     </span>
-                    <input type="text" id="headerSearch" oninput="handleGlobalSearch(this.value)" placeholder="Buscar leyes, códigos, decretos, artículos..." class="w-full pl-10 pr-4 py-2.5 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all">
+                    <input type="text" id="headerSearch" oninput="handleGlobalSearch(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();runSearchNow();}" placeholder="Buscar leyes, códigos, decretos, artículos..." class="w-full pl-10 pr-4 py-2.5 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all" autocomplete="off">
                 </div>
             </div>
 
             <div class="flex items-center space-x-3">
-                <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all border border-slate-200 dark:border-slate-800">
+                <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all border border-slate-200 dark:border-slate-800" aria-label="Cambiar tema">
                     <i id="themeIcon" class="fa-solid fa-moon"></i>
                 </button>
-                <button onclick="openReadingListModal()" class="relative p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all border border-slate-200 dark:border-slate-800 flex items-center space-x-1.5 px-3">
+                <button onclick="openReadingListModal()" class="relative p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all border border-slate-200 dark:border-slate-800 flex items-center space-x-1.5 px-3" aria-label="Lecturas guardadas">
                     <i class="fa-solid fa-bookmark text-emerald-600"></i>
                     <span class="text-xs font-bold" id="savedCount">0</span>
                 </button>
@@ -100,10 +158,19 @@
                 </button>
             </div>
         </div>
+        <!-- Buscador móvil -->
+        <div class="md:hidden px-4 pb-3">
+            <div class="relative w-full">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <i class="fa-solid fa-search"></i>
+                </span>
+                <input type="text" id="headerSearchMobile" oninput="syncSearchInputs(this.value); handleGlobalSearch(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();runSearchNow();}" placeholder="Buscar leyes, códigos, artículos..." class="w-full pl-10 pr-4 py-2.5 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all" autocomplete="off">
+            </div>
+        </div>
     </header>
 
     <!-- Hero Banner -->
-    <section class="relative bg-gradient-to-br from-emerald-900 via-slate-900 to-slate-950 text-white py-16 px-4 overflow-hidden">
+    <section class="relative bg-gradient-to-br from-emerald-900 via-slate-900 to-slate-950 text-white py-14 px-4 overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#22c55e_1px,transparent_1px)] [background-size:16px_16px]"></div>
         <div class="max-w-4xl mx-auto text-center relative z-10">
             <span class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 mb-6 backdrop-blur-md">
@@ -114,87 +181,96 @@
                 El marco legal de Colombia <br/><span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">al alcance de tu lectura</span>
             </h1>
             <p class="text-slate-300 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
-                Explora códigos, leyes orgánicas, decretos y jurisprudencia con resúmenes inteligentes, análisis de vigencia y herramientas interactivas diseñadas para la máxima confianza.
+                Busca códigos, leyes, decretos y artículos en fuentes oficiales. Lee el texto completo en línea, guarda lecturas y calcula plazos hábiles.
             </p>
 
-            <!-- Interactive Category Tabs -->
+            <!-- Category Tabs → disparan búsqueda Google filtrada -->
             <div id="categoryTabs" class="flex flex-wrap justify-center gap-2 sm:gap-3">
-                <button onclick="filterCategory('todos')" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-emerald-600 text-white shadow-lg shadow-emerald-600/30">
+                <button data-cat="todos" onclick="filterCategory('todos', this)" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-emerald-600 text-white shadow-lg shadow-emerald-600/30">
                     <i class="fa-solid fa-layer-group mr-1.5"></i> Todos
                 </button>
-                <button onclick="filterCategory('constitucion')" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700">
+                <button data-cat="constitucion" onclick="filterCategory('constitucion', this)" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700">
                     <i class="fa-solid fa-book-bible mr-1.5"></i> Constitución
                 </button>
-                <button onclick="filterCategory('penal')" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700">
+                <button data-cat="penal" onclick="filterCategory('penal', this)" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700">
                     <i class="fa-solid fa-gavel mr-1.5"></i> Código Penal
                 </button>
-                <button onclick="filterCategory('civil')" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700">
+                <button data-cat="civil" onclick="filterCategory('civil', this)" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700">
                     <i class="fa-solid fa-hands-holding-child mr-1.5"></i> Código Civil
                 </button>
-                <button onclick="filterCategory('laboral')" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700">
+                <button data-cat="laboral" onclick="filterCategory('laboral', this)" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700">
                     <i class="fa-solid fa-briefcase mr-1.5"></i> Código Laboral
                 </button>
-                <button onclick="filterCategory('comercio')" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700">
+                <button data-cat="comercio" onclick="filterCategory('comercio', this)" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700">
                     <i class="fa-solid fa-store mr-1.5"></i> Comercio
+                </button>
+                <button data-cat="cgp" onclick="filterCategory('cgp', this)" class="cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700">
+                    <i class="fa-solid fa-scale-balanced mr-1.5"></i> CGP
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- Main Content Area -->
+    <!-- Main Content -->
     <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            <!-- Left Column: Law List & Cards (8 cols) -->
+
+            <!-- Left: results -->
             <div class="lg:col-span-8 space-y-6">
-                
-                <!-- Filter Status & Stats bar -->
+
+                <!-- Stats bar -->
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
                     <div class="flex items-center space-x-2">
                         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <h2 class="font-bold text-sm sm:text-base text-slate-700 dark:text-slate-200" id="resultsCountHeader">Mostrando 6 normas principales</h2>
+                        <h2 class="font-bold text-sm sm:text-base text-slate-700 dark:text-slate-200" id="resultsCountHeader">Explora la normatividad colombiana</h2>
                     </div>
-                    <div class="flex items-center space-x-2 text-xs">
-                        <span class="text-slate-500">Ordenar por:</span>
-                        <select id="sortSelect" onchange="sortLaws(this.value)" class="bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-1.5 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-medium">
-                            <option value="relevancia">Relevancia</option>
-                            <option value="recientes">Más Recientes</option>
-                            <option value="citadas">Más Citadas</option>
-                        </select>
+                    <div class="flex items-center space-x-2 text-xs text-slate-500" id="searchStatusBadge">
+                        <i class="fa-brands fa-google text-emerald-600"></i>
+                        <span>Búsqueda en fuentes oficiales</span>
                     </div>
                 </div>
 
-                <!-- Article Viewer: muestra el texto del artículo directamente en tu página,
-                     ya sea por atajo directo o al hacer clic en un resultado de Google -->
+                <!-- Article viewer (texto del artículo en la página) -->
                 <div id="articleViewer" class="hidden"></div>
 
-                <!-- Google Programmable Search Engine — resultados en línea (sin ventana superpuesta),
-                     controlado por el buscador de tu header. -->
+                <!-- Google CSE results -->
                 <div id="googleResultsWrapper" class="hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
-                    <div class="flex items-center space-x-2 mb-3">
-                        <i class="fa-brands fa-google text-emerald-600"></i>
-                        <span class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">Resultados de búsqueda</span>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-brands fa-google text-emerald-600"></i>
+                            <span class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">Resultados de búsqueda</span>
+                        </div>
+                        <button onclick="clearSearch()" class="text-xs text-slate-400 hover:text-emerald-600 font-medium flex items-center space-x-1">
+                            <i class="fa-solid fa-xmark"></i><span>Limpiar</span>
+                        </button>
                     </div>
                     <div id="gcseResultsBox"></div>
                 </div>
 
-                <!-- Laws Feed -->
-                <div id="lawsContainer" class="space-y-4">
-                    <!-- Dynamic rendering via JS -->
-                </div>
-
-                <!-- Pagination load more -->
-                <div class="text-center pt-4">
-                    <button onclick="loadMoreLaws()" id="loadMoreBtn" class="px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-300 shadow-sm transition-all hover:shadow">
-                        <i class="fa-solid fa-rotate mr-2 text-emerald-600"></i> Cargar más normatividad
-                    </button>
+                <!-- Home / empty state: sugerencias de códigos (sin datos locales de artículos) -->
+                <div id="homeExplore" class="space-y-4">
+                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+                        <h3 class="font-bold text-base text-slate-900 dark:text-white mb-1">Códigos y estatutos principales</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">Selecciona una norma para buscar sus artículos en fuentes oficiales, o escribe en el buscador (ej. <em>«artículo 34 código general del proceso»</em>).</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="exploreGrid">
+                            <!-- Rellenado por JS -->
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+                        <h3 class="font-bold text-sm text-slate-900 dark:text-white mb-3 flex items-center">
+                            <i class="fa-solid fa-lightbulb text-amber-500 mr-2"></i> Ejemplos de búsqueda
+                        </h3>
+                        <div class="flex flex-wrap gap-2" id="exampleQueries">
+                            <!-- Rellenado por JS -->
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Right Column: Sidebar (Trending, Alerts, Legal Calculator widget) (4 cols) -->
+            <!-- Sidebar -->
             <aside class="lg:col-span-4 space-y-6">
-                
-                <!-- Quick AI Legal Summary Widget -->
+
+                <!-- Quick AI -->
                 <div class="bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-transparent border border-emerald-500/20 rounded-2xl p-5 shadow-sm">
                     <div class="flex items-center space-x-3 mb-3">
                         <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-600/30">
@@ -212,11 +288,10 @@
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
-                    <div id="quickAiResult" class="hidden mt-3 p-3 bg-white dark:bg-slate-900 rounded-xl border border-emerald-500/30 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
-                    </div>
+                    <div id="quickAiResult" class="hidden mt-3 p-3 bg-white dark:bg-slate-900 rounded-xl border border-emerald-500/30 text-xs text-slate-700 dark:text-slate-300 leading-relaxed"></div>
                 </div>
 
-                <!-- Trending / Most Read Laws -->
+                <!-- Tendencias = búsquedas populares (disparan Google) -->
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="font-bold text-sm text-slate-900 dark:text-white flex items-center">
@@ -224,12 +299,10 @@
                         </h3>
                         <span class="text-[10px] bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 px-2 py-0.5 rounded font-bold">Hoy</span>
                     </div>
-                    <div class="space-y-3" id="trendingList">
-                        <!-- Rendered via JS -->
-                    </div>
+                    <div class="space-y-3" id="trendingList"></div>
                 </div>
 
-                <!-- Interactive Legal Deadline Calculator Widget -->
+                <!-- Calculadora de plazos -->
                 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
                     <h3 class="font-bold text-sm text-slate-900 dark:text-white flex items-center mb-3">
                         <i class="fa-solid fa-calculator text-emerald-600 mr-2"></i> Calculadora de Plazos Legales
@@ -247,12 +320,11 @@
                         <button onclick="calculateLegalDeadline()" class="w-full py-2 bg-slate-800 dark:bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl transition-all">
                             Calcular Vencimiento
                         </button>
-                        <div id="calcResult" class="hidden p-3 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-xl text-emerald-800 dark:text-emerald-300 font-medium text-center">
-                        </div>
+                        <div id="calcResult" class="hidden p-3 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-xl text-emerald-800 dark:text-emerald-300 font-medium text-center"></div>
                     </div>
                 </div>
 
-                <!-- Newsletter Subscription for legal updates -->
+                <!-- Newsletter -->
                 <div class="bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-2xl p-5 shadow-sm border border-slate-800">
                     <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-3">
                         <i class="fa-solid fa-envelope-open-text text-sm"></i>
@@ -266,53 +338,11 @@
                         </button>
                     </form>
                 </div>
-
             </aside>
         </div>
     </main>
 
-    <!-- Law Detail / Reader Modal -->
-    <div id="lawModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-white dark:bg-slate-900 w-full max-w-4xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col max-h-[90vh] animate-in fade-in zoom-in duration-200">
-            <!-- Modal Header -->
-            <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-950/50">
-                <div class="flex items-center space-x-3">
-                    <span id="modalCategoryBadge" class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">Ley</span>
-                    <h3 id="modalTitle" class="font-bold text-base sm:text-lg text-slate-900 dark:text-white truncate max-w-md">Título de la Norma</h3>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <button onclick="toggleBookmarkCurrent()" id="modalBookmarkBtn" title="Guardar en mis lecturas" class="p-2 rounded-xl bg-slate-200/60 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-emerald-100 hover:text-emerald-700 transition-all">
-                        <i class="fa-regular fa-bookmark"></i>
-                    </button>
-                    <button onclick="shareLaw()" title="Copiar enlace" class="p-2 rounded-xl bg-slate-200/60 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 transition-all">
-                        <i class="fa-solid fa-share-nodes"></i>
-                    </button>
-                    <button onclick="closeModal()" class="p-2 rounded-xl bg-slate-200/60 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-red-100 hover:text-red-600 transition-all">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Modal Body (Tabs for Summary, Full Content, Concordances) -->
-            <div class="flex border-b border-slate-200 dark:border-slate-800 px-6 bg-slate-50/50 dark:bg-slate-950/30 text-xs font-semibold">
-                <button onclick="switchModalTab('content')" id="tabBtnContent" class="py-3 px-4 border-b-2 border-emerald-600 text-emerald-600 dark:text-emerald-400 transition-all">Texto y Artículos</button>
-                <button onclick="switchModalTab('summary')" id="tabBtnSummary" class="py-3 px-4 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-all">Resumen Ejecutivo IA</button>
-                <button onclick="switchModalTab('concordances')" id="tabBtnConcordances" class="py-3 px-4 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-all">Concordancias y Jurisprudencia</button>
-            </div>
-
-            <div class="p-6 overflow-y-auto flex-1 space-y-4 text-sm leading-relaxed text-slate-700 dark:text-slate-300" id="modalBodyContent">
-                <!-- Dynamic Content inserted here -->
-            </div>
-
-            <!-- Modal Footer -->
-            <div class="px-6 py-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/50 flex items-center justify-between text-xs text-slate-500">
-                <span id="modalDateStatus">Actualizado a 2026 • Vigencia Plena</span>
-                <button onclick="closeModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl transition-all">Cerrar</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Reading List / Bookmarks Modal -->
+    <!-- Reading List Modal -->
     <div id="readingListModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white dark:bg-slate-900 w-full max-w-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col max-h-[80vh]">
             <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-950/50">
@@ -323,13 +353,11 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <div id="savedLawsContainer" class="p-6 overflow-y-auto flex-1 space-y-3">
-                <!-- Rendered via JS -->
-            </div>
+            <div id="savedLawsContainer" class="p-6 overflow-y-auto flex-1 space-y-3"></div>
         </div>
     </div>
 
-    <!-- AI Legal Consultation Modal -->
+    <!-- AI Consultation Modal -->
     <div id="consultationModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col h-[600px]">
             <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-emerald-900 text-white">
@@ -350,7 +378,7 @@
                 <div class="flex items-start space-x-3">
                     <div class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 font-bold text-xs">LEX</div>
                     <div class="bg-slate-100 dark:bg-slate-800 p-3.5 rounded-2xl rounded-tl-none text-slate-700 dark:text-slate-300 max-w-[85%] leading-relaxed">
-                        ¡Hola! Soy tu asistente legal virtual. Puedo explicarte artículos, resolver dudas sobre el Código Civil, Penal, Laboral o de Comercio vigente en Colombia. ¿Qué consulta tienes hoy?
+                        ¡Hola! Soy tu asistente legal virtual. Puedo orientarte sobre el Código Civil, Penal, Laboral, de Comercio o la Constitución vigente en Colombia. ¿Qué consulta tienes hoy?
                     </div>
                 </div>
             </div>
@@ -363,7 +391,7 @@
         </div>
     </div>
 
-    <!-- Notification Toast -->
+    <!-- Toast -->
     <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-5 py-3 rounded-xl shadow-2xl flex items-center space-x-3 text-xs sm:text-sm font-semibold">
         <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-500"></i>
         <span id="toastMsg">Acción realizada correctamente</span>
@@ -380,153 +408,85 @@
                     <span class="text-white font-extrabold text-lg">LexColombia Pro</span>
                 </div>
                 <p class="text-xs text-slate-400 leading-relaxed">
-                    Plataforma interactiva de consulta jurídica, códigos y leyes de la República de Colombia con herramientas inteligentes para ciudadanos, abogados y estudiantes.
+                    Plataforma interactiva de consulta jurídica de la República de Colombia. Busca y lee códigos, leyes y artículos desde fuentes públicas verificadas.
                 </p>
             </div>
             <div>
                 <h4 class="text-white font-semibold text-sm mb-3">Códigos Principales</h4>
                 <ul class="space-y-2 text-xs">
-                    <li><a href="#" onclick="filterCategory('constitucion')" class="hover:text-white transition-colors">Constitución Política</a></li>
-                    <li><a href="#" onclick="filterCategory('penal')" class="hover:text-white transition-colors">Código Penal (Ley 599)</a></li>
-                    <li><a href="#" onclick="filterCategory('civil')" class="hover:text-white transition-colors">Código Civil Colombiano</a></li>
-                    <li><a href="#" onclick="filterCategory('laboral')" class="hover:text-white transition-colors">Código Sustantivo del Trabajo</a></li>
-                    <li><a href="#" onclick="filterCategory('comercio')" class="hover:text-white transition-colors">Código de Comercio</a></li>
+                    <li><a href="#" onclick="filterCategory('constitucion'); return false;" class="hover:text-white transition-colors">Constitución Política</a></li>
+                    <li><a href="#" onclick="filterCategory('penal'); return false;" class="hover:text-white transition-colors">Código Penal (Ley 599)</a></li>
+                    <li><a href="#" onclick="filterCategory('civil'); return false;" class="hover:text-white transition-colors">Código Civil Colombiano</a></li>
+                    <li><a href="#" onclick="filterCategory('laboral'); return false;" class="hover:text-white transition-colors">Código Sustantivo del Trabajo</a></li>
+                    <li><a href="#" onclick="filterCategory('comercio'); return false;" class="hover:text-white transition-colors">Código de Comercio</a></li>
+                    <li><a href="#" onclick="filterCategory('cgp'); return false;" class="hover:text-white transition-colors">Código General del Proceso</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-semibold text-sm mb-3">Herramientas</h4>
                 <ul class="space-y-2 text-xs">
-                    <li><a href="#" onclick="openConsultationModal()" class="hover:text-white transition-colors">Asistente Legal IA</a></li>
-                    <li><a href="#" onclick="openReadingListModal()" class="hover:text-white transition-colors">Mis Lecturas Guardadas</a></li>
-                    <li><a href="#" onclick="showToast('Buscador avanzado activo')" class="hover:text-white transition-colors">Buscador de Jurisprudencia</a></li>
-                    <li><a href="#" onclick="showToast('Calculadora de términos lista')" class="hover:text-white transition-colors">Calculadora de Términos</a></li>
+                    <li><a href="#" onclick="openConsultationModal(); return false;" class="hover:text-white transition-colors">Asistente Legal IA</a></li>
+                    <li><a href="#" onclick="openReadingListModal(); return false;" class="hover:text-white transition-colors">Mis Lecturas Guardadas</a></li>
+                    <li><a href="#" onclick="document.getElementById('headerSearch').focus(); return false;" class="hover:text-white transition-colors">Buscador de Normas</a></li>
+                    <li><a href="#" onclick="showToast('Calculadora de términos lista'); return false;" class="hover:text-white transition-colors">Calculadora de Términos</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-white font-semibold text-sm mb-3">Confianza y Transparencia</h4>
-                <p class="text-xs text-slate-400 mb-3">Información basada en el Diario Oficial de Colombia y fuentes públicas verificadas.</p>
+                <p class="text-xs text-slate-400 mb-3">Resultados basados en fuentes públicas (leyes.co, Secretaría del Senado y repositorios oficiales). La información es orientativa; para casos concretos consulta a un abogado colegiado.</p>
                 <div class="flex items-center space-x-3 text-emerald-400">
                     <i class="fa-solid fa-shield-check text-xl"></i>
-                    <span class="text-xs text-slate-300 font-medium">Actualización legislativa garantizada 2026</span>
+                    <span class="text-xs text-slate-300 font-medium">Actualización legislativa 2026</span>
                 </div>
             </div>
         </div>
         <div class="max-w-7xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
-            &copy; 2026 LexColombia Pro. Todos los derechos reservados. Diseñado para una lectura jurídica impecable y confiable.
+            &copy; 2026 LexColombia Pro. Todos los derechos reservados. Diseñado para una lectura jurídica confiable.
         </div>
     </footer>
 
-    <!-- JavaScript Application Logic -->
     <script>
-        // Database of Colombian Laws and Codes
-        const lawsDatabase = [
-            {
-                id: 1,
-                title: "Constitución Política de Colombia (1991)",
-                category: "constitucion",
-                code: "CP-1991",
-                date: "04/07/1991",
-                snippet: "Norma de normas. Garantiza los derechos fundamentales, la estructura del Estado, la rama judicial, legislativa y ejecutiva, y los mecanismos de participación ciudadana.",
-                reads: 142500,
-                citations: 5420,
-                summary: "La Constitución de 1991 transformó a Colombia en un Estado Social de Derecho, descentralizado, participativo y pluralista. Consagra la tutela como mecanismo inmediato de protección de derechos fundamentales.",
-                articles: [
-                    { num: "Artículo 1", title: "Estado Social de Derecho", text: "Colombia es un Estado social de derecho, organizado en forma de República unitaria, descentralizada, con autonomía de sus entidades territoriales, democrática, participativa y pluralista..." },
-                    { num: "Artículo 2", title: "Fines del Estado", text: "Son fines esenciales del Estado: servir a la comunidad, promover la prosperidad general y garantizar la efectividad de los principios, derechos y deberes consagrados en la Constitución..." },
-                    { num: "Artículo 86", title: "Acción de Tutela", text: "Toda persona tendrá acción de tutela para reclamar ante los jueces, en todo momento y lugar, mediante un procedimiento preferente y sumario... la protección inmediata de sus derechos fundamentales..." }
-                ],
-                concordances: ["Ley 25 de 1992", "Decreto 2591 de 1991", "Sentencia C-035 de 2022"]
-            },
-            {
-                id: 2,
-                title: "Código Penal - Ley 599 de 2000",
-                category: "penal",
-                code: "Ley 599 / 2000",
-                date: "24/07/2000",
-                snippet: "Establece los delitos, las penas aplicables en el territorio nacional, las circunstancias de agravación punitiva y los principios rectores del derecho penal colombiano.",
-                reads: 98400,
-                citations: 3810,
-                summary: "Regula la potestad punitiva del Estado. Define las conductas punibles contra la vida, la integridad personal, el patrimonio económico, la administración pública y el orden constitucional.",
-                articles: [
-                    { num: "Artículo 1", title: "Principio de Legalidad", text: "Nadie podrá ser juzgado sino conforme a las leyes preexistentes al acto que se le imputa, ante el juez o tribunal competente y con observancia de la plenitud de las formas propias de cada juicio." },
-                    { num: "Artículo 103", title: "Homicidio", text: "El que matare a otro incurrirá en prisión de doscientos ochenta (280) a cuatrocientos ochenta (480) meses." },
-                    { num: "Artículo 239", title: "Hurto", text: "El que se apodere de mueble ajeno, con el propósito de obtener provecho para sí o para otro, incurrirá en prisión de treinta y dos (32) a ciento ocho (108) meses." }
-                ],
-                concordances: ["Ley 906 de 2004 (Procedimiento Penal)", "Ley 1453 de 2011", "Sentencia C-254 de 2023"]
-            },
-            {
-                id: 3,
-                title: "Código Sustantivo del Trabajo (CST)",
-                category: "laboral",
-                code: "Decreto 2663 / 1950",
-                date: "09/09/1950",
-                snippet: "Regula las relaciones de derecho individual del trabajo de carácter particular y las relaciones colectivas, protegiendo los derechos de trabajadores y empleadores.",
-                reads: 112000,
-                citations: 4920,
-                summary: "El CST regula las condiciones de contratación, jornada laboral, prestaciones sociales, vacaciones, indemnizaciones por despido injustificado y el ejercicio del derecho de asociación sindical en Colombia.",
-                articles: [
-                    { num: "Artículo 5", title: "Definición de Trabajo", text: "El trabajo que regula este Código es toda actividad humana libre, manual o intelectual, material o técnica, que una persona natural ejecuta al servicio de otra..." },
-                    { num: "Artículo 22", title: "Contrato de Trabajo", text: "Contrato de trabajo es aquel por el cual una persona natural se obliga a prestar un servicio a otra persona, natural o jurídica, bajo la continua dependencia o subordinación..." },
-                    { num: "Artículo 57", title: "Obligaciones del Empleador", text: "Son obligaciones especiales del empleador: poner a disposición de los trabajadores los instrumentos adecuados y materias primas necesarias para la labor..." }
-                ],
-                concordances: ["Ley 50 de 1990", "Ley 789 de 2002", "Reforma Laboral Vigente"]
-            },
-            {
-                id: 4,
-                title: "Código Civil Colombiano",
-                category: "civil",
-                code: "Ley 57 de 1887",
-                date: "15/04/1887",
-                snippet: "Regula las personas, los bienes, las obligaciones, los contratos, la familia y las sucesiones por causa de muerte en el derecho privado colombiano.",
-                reads: 89300,
-                citations: 3100,
-                summary: "Fundamento del derecho privado. Establece las reglas sobre capacidad de las personas, régimen de propiedad, contratos civiles (compraventa, arrendamiento, hipoteca) y derecho sucesoral.",
-                articles: [
-                    { num: "Artículo 6", title: "Definición de Ley", text: "La ley es una declaración de la voluntad soberana manifestada en la forma prevenida en la Constitución Nacional. El carácter de la ley es mandar, prohibir, permitir o castigar." },
-                    { num: "Artículo 740", title: "Definición de Tradición", text: "La tradición es un modo de adquirir el dominio de las cosas, y consiste en la entrega que el dueño hace de ellas a otro, habiendo por una parte la facultad y la intención de transferir el dominio..." },
-                    { num: "Artículo 1495", title: "Definición de Contrato", text: "Contrato o convención es un acto por el cual una parte se obliga para con otra a dar, hacer o no hacer alguna cosa. Cada parte puede ser de una o muchas personas." }
-                ],
-                concordances: ["Ley 84 de 1873", "Ley 57 de 1887", "Código General del Proceso"]
-            },
-            {
-                id: 5,
-                title: "Código de Comercio - Decreto 410 de 1971",
-                category: "comercio",
-                code: "Decreto 410 / 1971",
-                date: "27/03/1971",
-                snippet: "Regula las obligaciones de los comerciantes, las sociedades comerciales, los títulos valores, los contratos mercantiles y las operaciones de comercio electrónico.",
-                reads: 64200,
-                citations: 2150,
-                summary: "Estatuto fundamental para la actividad empresarial y mercantil. Define los actos de comercio, la creación y tipología de sociedades (SAS, Ltda., S.A.) y la regulación de títulos valores como letras y pagarés.",
-                articles: [
-                    { num: "Artículo 1", title: "Aplicabilidad de la Ley Comercial", text: "Los comerciantes y los asuntos mercantiles se regirán por las disposiciones de la ley comercial, y en lo que ella no prevé fielmente, por las reglas del derecho civil." },
-                    { num: "Artículo 10", title: "Comerciantes", text: "Son comerciantes las personas que profesionalmente se ocupan en alguna de las actividades que la ley considera mercantiles. La calidad de comerciante se adquiere aunque la actividad se ejerza por medio de apoderado..." },
-                    { num: "Artículo 621", title: "Requisitos de los Títulos Valores", text: "Los títulos valores deberán contener los menciones y llenar los requisitos que la ley señale expresamente..." }
-                ],
-                concordances: ["Ley 1258 de 2008 (Sociedades S.A.S.)", "Estatuto del Consumidor"]
-            },
-            {
-                id: 6,
-                title: "Estatuto del Consumidor - Ley 1480 de 2011",
-                category: "civil",
-                code: "Ley 1480 / 2011",
-                date: "12/10/2011",
-                snippet: "Protege los derechos de los consumidores frente a la publicidad engañosa, la garantía legal de productos, la responsabilidad por productos defectuosos y el comercio electrónico.",
-                reads: 78100,
-                citations: 2840,
-                summary: "Otorga herramientas efectivas a los ciudadanos en sus relaciones con proveedores y productores. Regula el derecho de retracto, las ventas a plazos y las reclamaciones ante la Superintendencia de Industria y Comercio.",
-                articles: [
-                    { num: "Artículo 1", title: "Objetivo y Principios", text: "Esta ley tiene por objeto proteger, promover y garantizar los derechos y la adecuada participación de los consumidores y usuarios de bienes y servicios..." },
-                    { num: "Artículo 5", title: "Definiciones clave", text: "Consumidor o usuario, productor, proveedor, calidad, garantía, publicidad engañosa y seguridad del producto..." },
-                    { num: "Artículo 7", title: "Garantía Legal", text: "Todo bien o servicio supone la obligación de responder por la calidad, idoneidad, seguridad y buen estado y funcionamiento de los productos..." }
-                ],
-                concordances: ["Decreto 1074 de 2015", "Circular Única SIC"]
-            }
+        // ─────────────────────────────────────────────────────────────
+        // Catálogo de normas (solo metadatos de búsqueda; NO textos de artículos)
+        // ─────────────────────────────────────────────────────────────
+        const CATEGORY_QUERIES = {
+            todos: '',
+            constitucion: 'Constitución Política de Colombia',
+            penal: 'Código Penal Colombia Ley 599',
+            civil: 'Código Civil Colombia',
+            laboral: 'Código Sustantivo del Trabajo Colombia',
+            comercio: 'Código de Comercio Colombia',
+            cgp: 'Código General del Proceso Colombia'
+        };
+
+        const EXPLORE_CODES = [
+            { label: 'Constitución Política', query: 'Constitución Política de Colombia', icon: 'fa-book-bible', cat: 'constitucion' },
+            { label: 'Código Penal', query: 'Código Penal Ley 599', icon: 'fa-gavel', cat: 'penal' },
+            { label: 'Código Civil', query: 'Código Civil Colombia', icon: 'fa-hands-holding-child', cat: 'civil' },
+            { label: 'Código Sustantivo del Trabajo', query: 'Código Sustantivo del Trabajo', icon: 'fa-briefcase', cat: 'laboral' },
+            { label: 'Código de Comercio', query: 'Código de Comercio Decreto 410', icon: 'fa-store', cat: 'comercio' },
+            { label: 'Código General del Proceso', query: 'Código General del Proceso', icon: 'fa-scale-balanced', cat: 'cgp' },
+            { label: 'Código de Procedimiento Penal', query: 'Código de Procedimiento Penal Ley 906', icon: 'fa-gavel', cat: 'penal' },
+            { label: 'Estatuto del Consumidor', query: 'Estatuto del Consumidor Ley 1480', icon: 'fa-shield-halved', cat: 'civil' }
         ];
 
-        let currentCategory = 'todos';
-        // Mapa de normas -> slug real usado por la fuente oficial (leyes.co)
-        // Cada norma tiene alias (con y sin tildes) para reconocerla en lenguaje natural.
+        const TRENDING_SEARCHES = [
+            { title: 'Artículo 86 Constitución — Acción de Tutela', query: 'artículo 86 Constitución Política Colombia tutela' },
+            { title: 'Artículo 64 CST — Indemnización por despido', query: 'artículo 64 Código Sustantivo del Trabajo' },
+            { title: 'Artículo 103 Código Penal — Homicidio', query: 'artículo 103 Código Penal Colombia' },
+            { title: 'Artículo 34 CGP — Jueces de familia', query: 'artículo 34 Código General del Proceso' }
+        ];
+
+        const EXAMPLE_QUERIES = [
+            'artículo 1 código civil',
+            'artículo 103 código penal',
+            'artículo 64 código sustantivo del trabajo',
+            'tutela derechos fundamentales',
+            'sociedad por acciones simplificada',
+            'plazo recurso de apelación'
+        ];
+
+        // Mapa norma → slug leyes.co (para atajo directo de artículos)
         const normaSlugMap = [
             { slug: 'constitucion', label: 'Constitución Política de Colombia', aliases: ['constitucion politica', 'constitucion', 'cp'] },
             { slug: 'codigo_civil', label: 'Código Civil', aliases: ['codigo civil', 'cc'] },
@@ -549,24 +509,92 @@
             { slug: 'estatuto_organico_del_sistema_financiero', label: 'Estatuto Orgánico del Sistema Financiero', aliases: ['estatuto organico del sistema financiero', 'eosf'] },
             { slug: 'codigo_disciplinario_del_abogado', label: 'Código Disciplinario del Abogado', aliases: ['codigo disciplinario del abogado'] },
             { slug: 'estatuto_del_notariado', label: 'Estatuto del Notariado', aliases: ['estatuto del notariado'] },
-            { slug: 'codigo_disciplinario_unico', label: 'Código Disciplinario Único', aliases: ['codigo disciplinario unico', 'cdu'] }
+            { slug: 'codigo_disciplinario_unico', label: 'Código Disciplinario Único', aliases: ['codigo disciplinario unico', 'cdu'] },
+            { slug: 'el_estatuto_del_consumidor', label: 'Estatuto del Consumidor', aliases: ['estatuto del consumidor', 'ley 1480'] }
         ];
 
-        function normalizeText(str) {
-            return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+        // ─────────────────────────────────────────────────────────────
+        // Storage seguro (localStorage falla en iframe/sandbox sin allow-same-origin)
+        // ─────────────────────────────────────────────────────────────
+        const memoryStore = {};
+        const safeStorage = {
+            getItem(key) {
+                try {
+                    if (typeof localStorage !== 'undefined') {
+                        return localStorage.getItem(key);
+                    }
+                } catch (e) { /* sandboxed / disabled */ }
+                return Object.prototype.hasOwnProperty.call(memoryStore, key) ? memoryStore[key] : null;
+            },
+            setItem(key, value) {
+                try {
+                    if (typeof localStorage !== 'undefined') {
+                        localStorage.setItem(key, value);
+                        return;
+                    }
+                } catch (e) { /* sandboxed / disabled */ }
+                memoryStore[key] = String(value);
+            },
+            removeItem(key) {
+                try {
+                    if (typeof localStorage !== 'undefined') {
+                        localStorage.removeItem(key);
+                        return;
+                    }
+                } catch (e) { /* sandboxed / disabled */ }
+                delete memoryStore[key];
+            }
+        };
+
+        // ─────────────────────────────────────────────────────────────
+        // Estado
+        // ─────────────────────────────────────────────────────────────
+        let currentCategory = 'todos';
+        let searchQuery = '';
+        let googleSearchReady = false;
+        let pendingGoogleQuery = '';
+        let googleSearchDebounceTimer = null;
+        let articleRequestId = 0;
+        let currentArticleMeta = null; // { title, url, snippet } del artículo mostrado
+        // Guardados: array de { id, title, url, snippet, savedAt }
+        let savedItems = [];
+        try {
+            const raw = safeStorage.getItem('lex_saved_items');
+            const parsed = raw ? JSON.parse(raw) : [];
+            savedItems = Array.isArray(parsed) ? parsed : [];
+        } catch (e) {
+            savedItems = [];
         }
 
-        // Detecta si la búsqueda pide un artículo específico ("artículo 15 código civil", "art 133 cst", etc.)
-        // leyes.co usa el ordinal "1o", "2o"... "9o" para los artículos del 1 al 9,
-        // y a partir del 10 usa el número plano (10, 11, 34...). Si el usuario escribe
-        // solo el número sin la "o", la normalizamos para que el enlace no falle.
+        const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
+
+        // ─────────────────────────────────────────────────────────────
+        // Utilidades
+        // ─────────────────────────────────────────────────────────────
+        function normalizeText(str) {
+            return String(str).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
         function normalizeArticleForUrl(num) {
-            if (/^[1-9]$/.test(num)) {
-                return num + 'o';
-            }
+            if (/^[1-9]$/.test(num)) return num + 'o';
             return num;
         }
 
+        function uid() {
+            return 's_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+        }
+
+        // ─────────────────────────────────────────────────────────────
+        // Detección de artículo específico
+        // ─────────────────────────────────────────────────────────────
         function detectArticleQuery(rawQuery) {
             const q = normalizeText(rawQuery);
             if (!q) return null;
@@ -583,8 +611,7 @@
             normaSlugMap.forEach(norma => {
                 norma.aliases.forEach(alias => {
                     const isAbbrev = alias.length <= 4 && !alias.includes(' ');
-                    const pattern = isAbbrev ? new RegExp(`\\b${alias}\\b`) : null;
-                    const found = isAbbrev ? pattern.test(rest) : rest.includes(alias);
+                    const found = isAbbrev ? new RegExp(`\\b${alias}\\b`).test(rest) : rest.includes(alias);
                     if (found && alias.length > bestAliasLength) {
                         matchedNorma = norma;
                         bestAliasLength = alias.length;
@@ -602,35 +629,13 @@
                     fallbackUrl: googleFallbackUrl
                 };
             }
-
-            // Se detectó un número de artículo pero no se pudo identificar la norma
-            return {
-                articleNum,
-                norma: null,
-                directUrl: null,
-                fallbackUrl: googleFallbackUrl
-            };
+            return { articleNum, norma: null, directUrl: null, fallbackUrl: googleFallbackUrl };
         }
 
-        // Proxy público que permite hacer fetch de otro dominio desde el navegador
-        // (leyes.co no expone CORS, así que necesitamos un intermediario servidor-a-servidor
-        // para poder mostrar el texto DENTRO de tu página en vez de solo enlazar afuera).
-        const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
-
-        function escapeHtml(str) {
-            return String(str)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;');
-        }
-
-        // Descarga el HTML de la página del artículo y extrae solo el texto de la norma (div#statya),
-        // dejando fuera anuncios, comentarios y menús. Funciona para páginas de leyes.co.
         async function fetchArticleText(url) {
             const res = await fetch(CORS_PROXY + encodeURIComponent(url));
             if (!res.ok) throw new Error('No se pudo contactar la fuente oficial');
             const html = await res.text();
-
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
             const statya = doc.querySelector('#statya');
@@ -638,20 +643,22 @@
 
             const h1 = statya.querySelector('h1');
             const titleText = h1 ? h1.textContent.trim() : '';
-
             const bodyClone = statya.cloneNode(true);
             const h1InClone = bodyClone.querySelector('h1');
             if (h1InClone) h1InClone.remove();
             bodyClone.querySelectorAll('script, style, a#add_comment_link').forEach(el => el.remove());
             bodyClone.innerHTML = bodyClone.innerHTML.replace(/<br\s*\/?>/gi, '\n');
-
             const bodyText = bodyClone.textContent.replace(/\n{3,}/g, '\n\n').trim();
             if (!bodyText) throw new Error('Artículo vacío');
-
             return { titleText, bodyText };
         }
 
-        let articleRequestId = 0;
+        // ─────────────────────────────────────────────────────────────
+        // Visor de artículo + bookmark
+        // ─────────────────────────────────────────────────────────────
+        function isSavedUrl(url) {
+            return savedItems.some(s => s.url === url);
+        }
 
         function renderArticleLoadingCard(badgeText) {
             const box = document.getElementById('articleViewer');
@@ -664,11 +671,16 @@
                     <div class="h-3 bg-slate-100 dark:bg-slate-800 rounded-full w-3/4 animate-pulse"></div>
                     <div class="h-3 bg-slate-100 dark:bg-slate-800 rounded-full w-full animate-pulse"></div>
                     <div class="h-3 bg-slate-100 dark:bg-slate-800 rounded-full w-5/6 animate-pulse"></div>
-                </div>
-            `;
+                </div>`;
         }
 
         function renderArticleFoundCard(badgeText, directUrl, content) {
+            currentArticleMeta = {
+                title: content.titleText || 'Artículo',
+                url: directUrl,
+                snippet: (content.bodyText || '').slice(0, 220)
+            };
+            const saved = isSavedUrl(directUrl);
             const box = document.getElementById('articleViewer');
             box.innerHTML = `
                 <div class="bg-white dark:bg-slate-900 border-2 border-emerald-500 rounded-2xl p-6 shadow-sm space-y-3">
@@ -677,9 +689,14 @@
                             <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                             <span class="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">${escapeHtml(badgeText)}</span>
                         </div>
-                        <button onclick="closeArticleViewer()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm" aria-label="Cerrar">
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
+                        <div class="flex items-center space-x-1">
+                            <button onclick="toggleBookmarkCurrentArticle()" id="articleBookmarkBtn" title="Guardar lectura" class="p-2 rounded-xl text-slate-400 hover:text-emerald-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                                <i class="${saved ? 'fa-solid fa-bookmark text-emerald-600' : 'fa-regular fa-bookmark'}"></i>
+                            </button>
+                            <button onclick="closeArticleViewer()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm p-2" aria-label="Cerrar">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
                     </div>
                     <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                         ${escapeHtml(content.titleText || 'Artículo')}
@@ -691,11 +708,12 @@
                             <span>Ver fuente oficial completa</span>
                         </a>
                     </div>
-                </div>
-            `;
+                </div>`;
         }
 
         function renderArticleLinkOnlyCard(badgeText, articleLabel, description, ctaLabel, url) {
+            currentArticleMeta = { title: articleLabel, url: url, snippet: description };
+            const saved = isSavedUrl(url);
             const box = document.getElementById('articleViewer');
             box.innerHTML = `
                 <div class="bg-white dark:bg-slate-900 border-2 border-emerald-500 rounded-2xl p-6 shadow-sm space-y-3">
@@ -704,9 +722,14 @@
                             <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                             <span class="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">${escapeHtml(badgeText)}</span>
                         </div>
-                        <button onclick="closeArticleViewer()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm" aria-label="Cerrar">
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
+                        <div class="flex items-center space-x-1">
+                            <button onclick="toggleBookmarkCurrentArticle()" title="Guardar lectura" class="p-2 rounded-xl text-slate-400 hover:text-emerald-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                                <i class="${saved ? 'fa-solid fa-bookmark text-emerald-600' : 'fa-regular fa-bookmark'}"></i>
+                            </button>
+                            <button onclick="closeArticleViewer()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm p-2" aria-label="Cerrar">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
                     </div>
                     <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">${escapeHtml(articleLabel)}</h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${description}</p>
@@ -716,17 +739,16 @@
                             <span>${escapeHtml(ctaLabel)}</span>
                         </a>
                     </div>
-                </div>
-            `;
+                </div>`;
         }
 
         function closeArticleViewer() {
             const box = document.getElementById('articleViewer');
             box.classList.add('hidden');
             box.innerHTML = '';
+            currentArticleMeta = null;
         }
 
-        // Atajo directo: se dispara mientras escribes en el buscador si detecta "artículo N + norma"
         async function renderDirectArticleResult(rawQuery) {
             const box = document.getElementById('articleViewer');
             const result = detectArticleQuery(rawQuery);
@@ -735,16 +757,18 @@
             if (!result) {
                 box.classList.add('hidden');
                 box.innerHTML = '';
+                currentArticleMeta = null;
                 return;
             }
 
             box.classList.remove('hidden');
+            box.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
             if (!result.norma) {
                 renderArticleLinkOnlyCard(
                     'Búsqueda de artículo detectada',
                     `Artículo ${result.articleNum}`,
-                    `Indícanos a qué código o ley pertenece (ej. "artículo ${result.articleNum} código civil") para mostrarte el texto, o revisa los resultados de búsqueda abajo.`,
+                    `Indica a qué código o ley pertenece (ej. «artículo ${result.articleNum} código civil») para mostrar el texto, o revisa los resultados de Google abajo.`,
                     `Buscar Artículo ${result.articleNum}`,
                     result.fallbackUrl
                 );
@@ -762,21 +786,16 @@
                 renderArticleLinkOnlyCard(
                     'Atajo directo encontrado',
                     `Artículo ${result.articleNum} · ${result.norma.label}`,
-                    'No pudimos cargar el texto automáticamente en este momento (el servicio intermediario puede estar ocupado). Ábrelo directamente en la fuente oficial:',
+                    'No pudimos cargar el texto automáticamente (el intermediario puede estar ocupado). Ábrelo en la fuente oficial:',
                     `Ver Artículo ${result.articleNum} completo`,
                     result.directUrl
                 );
             }
         }
 
-        // Al hacer clic en un resultado de Google que apunta a leyes.co, mostramos el
-        // artículo dentro de la página en vez de navegar afuera. Otros dominios (ej.
-        // secretariasenado.gov.co) no tienen una estructura de página predecible para
-        // extraer, así que esos se abren en pestaña nueva para no perder tu sitio.
         async function openResultInline(url) {
             const box = document.getElementById('articleViewer');
             const myRequestId = ++articleRequestId;
-
             box.classList.remove('hidden');
             box.scrollIntoView({ behavior: 'smooth', block: 'start' });
             renderArticleLoadingCard('Cargando resultado...');
@@ -790,14 +809,14 @@
                 renderArticleLinkOnlyCard(
                     'Resultado de búsqueda',
                     'No se pudo cargar el texto',
-                    'No pudimos mostrar el texto automáticamente en este momento. Ábrelo directamente:',
+                    'No pudimos mostrar el texto automáticamente. Ábrelo directamente:',
                     'Ver página completa',
                     url
                 );
             }
         }
 
-        // Intercepta los clics dentro de los resultados de Google
+        // Clics en resultados de Google
         document.addEventListener('click', function (e) {
             const resultsBox = document.getElementById('gcseResultsBox');
             if (!resultsBox || !resultsBox.contains(e.target)) return;
@@ -810,21 +829,14 @@
                 e.preventDefault();
                 openResultInline(href);
             } else {
-                // Otros dominios (secretariasenado.gov.co, etc.): abrir en pestaña nueva
-                // para no sacar al usuario de la aplicación.
                 e.preventDefault();
                 window.open(href, '_blank', 'noopener,noreferrer');
             }
         }, true);
 
-        // ---------------------------------------------------------------
-        // Google Programmable Search Engine — modo "results only", controlado
-        // por el buscador de tu header (sin caja propia de Google, sin overlay).
-        // ---------------------------------------------------------------
-        let googleSearchReady = false;
-        let pendingGoogleQuery = '';
-        let googleSearchDebounceTimer = null;
-
+        // ─────────────────────────────────────────────────────────────
+        // Google CSE
+        // ─────────────────────────────────────────────────────────────
         window.__gcse = {
             parsetags: 'explicit',
             callback: function () {
@@ -838,16 +850,34 @@
                     runGoogleSearch(pendingGoogleQuery);
                     pendingGoogleQuery = '';
                 }
+                // Observar cambios en resultados para actualizar contador
+                observeGoogleResults();
             }
         };
 
+        function buildSearchQuery(userQuery, category) {
+            const catQ = CATEGORY_QUERIES[category] || '';
+            const uq = (userQuery || '').trim();
+            if (uq && catQ) return `${uq} ${catQ}`;
+            if (uq) return uq;
+            if (catQ) return catQ;
+            return '';
+        }
+
         function runGoogleSearch(query) {
             const wrapper = document.getElementById('googleResultsWrapper');
+            const home = document.getElementById('homeExplore');
+
             if (!query) {
                 wrapper.classList.add('hidden');
+                home.classList.remove('hidden');
+                document.getElementById('resultsCountHeader').innerText = 'Explora la normatividad colombiana';
                 return;
             }
+
             wrapper.classList.remove('hidden');
+            home.classList.add('hidden');
+            document.getElementById('resultsCountHeader').innerText = 'Buscando en fuentes oficiales…';
 
             if (!googleSearchReady) {
                 pendingGoogleQuery = query;
@@ -855,295 +885,184 @@
             }
             const element = google.search.cse.element.getElement('lexResults');
             if (element) element.execute(query);
+
+            // Actualizar contador tras un breve delay (CSE pinta el DOM)
+            setTimeout(updateResultsCountFromDom, 900);
+            setTimeout(updateResultsCountFromDom, 2000);
         }
 
-        let searchQuery = '';
-        let currentSort = 'relevancia';
-        let activeLawModal = null;
-        let savedLawIds = JSON.parse(localStorage.getItem('lex_saved_laws') || '[1, 3]');
-
-        // Initialize application on load
-        window.addEventListener('DOMContentLoaded', () => {
-            renderLaws();
-            renderTrending();
-            updateSavedCount();
-            
-            // Set default date for legal calculator to today
-            const todayStr = new Date().toISOString().split('T')[0];
-            const dateEl = document.getElementById('calcStartDate');
-            if(dateEl) dateEl.value = todayStr;
-        });
-
-        // Toggle Theme
-        function toggleTheme() {
-            const html = document.documentElement;
-            html.classList.toggle('dark');
-            const isDark = html.classList.contains('dark');
-            const icon = document.getElementById('themeIcon');
-            icon.className = isDark ? "fa-solid fa-sun text-amber-400" : "fa-solid fa-moon text-slate-600";
-            showToast(isDark ? "Modo oscuro activado" : "Modo claro activado");
+        function observeGoogleResults() {
+            const box = document.getElementById('gcseResultsBox');
+            if (!box || typeof MutationObserver === 'undefined') return;
+            const obs = new MutationObserver(() => updateResultsCountFromDom());
+            obs.observe(box, { childList: true, subtree: true });
         }
 
-        // Filter by Category
-        function filterCategory(cat) {
-            currentCategory = cat;
-            document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.className = "cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700";
-            });
-            event.currentTarget.className = "cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-emerald-600 text-white shadow-lg shadow-emerald-600/30";
-            renderLaws();
-        }
+        function updateResultsCountFromDom() {
+            const info = document.querySelector('.gsc-result-info');
+            const header = document.getElementById('resultsCountHeader');
+            if (!header) return;
 
-        // Global Search
-        function handleGlobalSearch(val) {
-            searchQuery = val.toLowerCase().trim();
-            renderDirectArticleResult(val);
-            renderLaws();
-
-            // Debounce: esperamos a que el usuario deje de escribir antes de
-            // consumir una consulta de la cuota diaria del CSE.
-            clearTimeout(googleSearchDebounceTimer);
-            googleSearchDebounceTimer = setTimeout(() => {
-                runGoogleSearch(val.trim());
-            }, 500);
-        }
-
-        // Sort Laws
-        function sortLaws(type) {
-            currentSort = type;
-            renderLaws();
-        }
-
-        // Render Laws Feed
-        function renderLaws() {
-            const container = document.getElementById('lawsContainer');
-            let filtered = lawsDatabase.filter(law => {
-                const matchCat = currentCategory === 'todos' || law.category === currentCategory;
-                const matchQuery = law.title.toLowerCase().includes(searchQuery) || 
-                                   law.snippet.toLowerCase().includes(searchQuery) ||
-                                   law.code.toLowerCase().includes(searchQuery);
-                return matchCat && matchQuery;
-            });
-
-            // Sorting
-            if(currentSort === 'recientes') {
-                filtered.sort((a,b) => new Date(b.date.split('/').reverse().join('-')) - new Date(a.date.split('/').reverse().join('-')));
-            } else if(currentSort === 'citadas') {
-                filtered.sort((a,b) => b.citations - a.citations);
-            } else {
-                filtered.sort((a,b) => b.reads - a.reads);
-            }
-
-            document.getElementById('resultsCountHeader').innerText = `Mostrando ${filtered.length} normas jurídicas`;
-
-            if(filtered.length === 0) {
-                container.innerHTML = `
-                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-12 text-center space-y-3">
-                        <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 text-slate-400 rounded-full flex items-center justify-center mx-auto text-xl">
-                            <i class="fa-solid fa-search"></i>
-                        </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-200">No se encontraron normas</h3>
-                        <p class="text-xs text-slate-500 max-w-sm mx-auto">Intenta con otros términos de búsqueda o selecciona otra categoría legislativa.</p>
-                    </div>
-                `;
+            if (info && info.textContent.trim()) {
+                // Texto típico: "About 1,240 results (0.42 seconds)"
+                const t = info.textContent.trim();
+                const m = t.match(/([\d.,]+)\s*(result|resultado)/i);
+                if (m) {
+                    header.innerText = `Mostrando resultados de Google (${m[1]})`;
+                    return;
+                }
+                header.innerText = t;
                 return;
             }
 
-            container.innerHTML = filtered.map(law => {
-                const isSaved = savedLawIds.includes(law.id);
-                return `
-                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all group">
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div class="flex items-center space-x-2.5 flex-wrap gap-y-1">
-                                <span class="px-2.5 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 text-xs font-bold border border-emerald-200 dark:border-emerald-800">${law.code}</span>
-                                <span class="text-xs text-slate-500 dark:text-slate-400"><i class="fa-regular fa-calendar mr-1"></i> ${law.date}</span>
-                            </div>
-                            <button onclick="toggleBookmark(${law.id})" class="p-2 rounded-xl text-slate-400 hover:text-emerald-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-                                <i class="${isSaved ? 'fa-solid fa-bookmark text-emerald-600' : 'fa-regular fa-bookmark'} text-base"></i>
-                            </button>
-                        </div>
-                        <h3 onclick="openLawModal(${law.id})" class="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors cursor-pointer mb-2">
-                            ${law.title}
-                        </h3>
-                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                            ${law.snippet}
-                        </p>
-                        <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800/85 text-xs">
-                            <div class="flex items-center space-x-4 text-slate-500">
-                                <span><i class="fa-solid fa-eye mr-1 text-emerald-600"></i> ${(law.reads).toLocaleString()} lecturas</span>
-                                <span><i class="fa-solid fa-quote-right mr-1 text-teal-600"></i> ${law.citations} citas</span>
-                            </div>
-                            <button onclick="openLawModal(${law.id})" class="font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center space-x-1">
-                                <span>Leer norma completa</span>
-                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
+            const results = document.querySelectorAll('.gsc-result');
+            if (results.length > 0) {
+                header.innerText = `Mostrando ${results.length} resultado${results.length === 1 ? '' : 's'} en esta página`;
+            } else if (searchQuery || currentCategory !== 'todos') {
+                header.innerText = 'Sin resultados para esta búsqueda';
+            }
         }
 
-        // Render Trending Sidebar
-        function renderTrending() {
-            const list = [...lawsDatabase].sort((a,b) => b.reads - a.reads).slice(0, 4);
-            const container = document.getElementById('trendingList');
-            container.innerHTML = list.map((item, idx) => `
-                <div onclick="openLawModal(${item.id})" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-all">
-                    <span class="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 font-bold text-xs flex items-center justify-center flex-shrink-0">0${idx+1}</span>
-                    <div class="overflow-hidden">
-                        <h4 class="font-bold text-xs text-slate-800 dark:text-slate-200 truncate">${item.title}</h4>
-                        <p class="text-[10px] text-slate-500">${(item.reads).toLocaleString()} consultas</p>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // Modal Functions for Law Reader
-        let modalActiveTab = 'content';
-        function openLawModal(id) {
-            const law = lawsDatabase.find(l => l.id === id);
-            if(!law) return;
-            activeLawModal = law;
-            modalActiveTab = 'content';
-
-            document.getElementById('modalTitle').innerText = law.title;
-            document.getElementById('modalCategoryBadge').innerText = law.code;
-            document.getElementById('modalDateStatus').innerText = `Sancionada el ${law.date} • Vigencia Plena Comprobada`;
-            
-            updateModalBookmarkBtn();
-            updateModalTabsUI();
-            renderModalBodyContent();
-
-            document.getElementById('lawModal').classList.remove('hidden');
-        }
-
-        function closeModal() {
-            document.getElementById('lawModal').classList.add('hidden');
-        }
-
-        function switchModalTab(tab) {
-            modalActiveTab = tab;
-            updateModalTabsUI();
-            renderModalBodyContent();
-        }
-
-        function updateModalTabsUI() {
-            ['content', 'summary', 'concordances'].forEach(t => {
-                const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
-                if(modalActiveTab === t) {
-                    btn.className = "py-3 px-4 border-b-2 border-emerald-600 text-emerald-600 dark:text-emerald-400 font-semibold transition-all";
-                } else {
-                    btn.className = "py-3 px-4 border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-all";
-                }
+        function setActiveCategoryButton(cat) {
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                const isActive = btn.getAttribute('data-cat') === cat;
+                btn.className = isActive
+                    ? 'cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
+                    : 'cat-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-300 hover:bg-slate-700 border border-slate-700';
             });
         }
 
-        function renderModalBodyContent() {
-            if(!activeLawModal) return;
-            const container = document.getElementById('modalBodyContent');
+        function filterCategory(cat, btnEl) {
+            currentCategory = cat;
+            setActiveCategoryButton(cat);
 
-            if(modalActiveTab === 'content') {
-                container.innerHTML = `
-                    <div class="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 p-4 rounded-xl mb-4">
-                        <h4 class="font-bold text-xs text-emerald-800 dark:text-emerald-300 mb-1"><i class="fa-solid fa-circle-info mr-1"></i> Sinopsis de la Norma</h4>
-                        <p class="text-xs text-emerald-700 dark:text-emerald-400">${activeLawModal.snippet}</p>
-                    </div>
-                    <h4 class="font-bold text-sm text-slate-900 dark:text-white mb-3">Artículos Principales Seleccionados:</h4>
-                    <div class="space-y-4">
-                        ${activeLawModal.articles.map(art => `
-                            <div class="bg-slate-50 dark:bg-slate-950/50 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-                                <h5 class="font-bold text-xs text-emerald-600 dark:text-emerald-400 mb-1">${art.num} - ${art.title}</h5>
-                                <p class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">${art.text}</p>
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
-            } else if(modalActiveTab === 'summary') {
-                container.innerHTML = `
-                    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-xl space-y-4 shadow-sm">
-                        <div class="flex items-center space-x-2 text-emerald-600 font-bold text-xs">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i>
-                            <span>Resumen Ejecutivo Generado por IA Jurídica</span>
-                        </div>
-                        <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                            ${activeLawModal.summary}
-                        </p>
-                        <div class="p-3 bg-slate-100 dark:bg-slate-800/60 rounded-lg text-xs text-slate-500">
-                            <span class="font-semibold text-slate-700 dark:text-slate-300">Impacto Práctico:</span> Esta norma es de obligatorio cumplimiento en todo el territorio nacional y su aplicación es vigilada por los entes de control competentes.
-                        </div>
-                    </div>
-                `;
-            } else if(modalActiveTab === 'concordances') {
-                container.innerHTML = `
-                    <div class="space-y-4">
-                        <h4 class="font-bold text-sm text-slate-900 dark:text-white">Normas concordantes y jurisprudencia vinculante:</h4>
-                        <div class="grid grid-cols-1 gap-3">
-                            ${activeLawModal.concordances.map(c => `
-                                <div class="p-3.5 bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-between">
-                                    <div class="flex items-center space-x-3">
-                                        <div class="w-8 h-8 rounded-lg bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-400 flex items-center justify-center font-bold text-xs">
-                                            <i class="fa-solid fa-scale-balanced"></i>
-                                        </div>
-                                        <span class="font-semibold text-xs text-slate-800 dark:text-slate-200">${c}</span>
-                                    </div>
-                                    <span class="text-[10px] bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 font-bold px-2 py-1 rounded">Vínculo Oficial</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            }
-        }
-
-        // Bookmark management
-        function toggleBookmark(id) {
-            const index = savedLawIds.indexOf(id);
-            if(index > -1) {
-                savedLawIds.splice(index, 1);
-                showToast("Norma retirada de tus lecturas");
+            const q = buildSearchQuery(searchQuery, cat);
+            if (q) {
+                runGoogleSearch(q);
+                renderDirectArticleResult(searchQuery || q);
             } else {
-                savedLawIds.push(id);
-                showToast("Norma guardada en tus lecturas");
+                // "Todos" sin texto → volver al home
+                clearSearch(false);
             }
-            localStorage.setItem('lex_saved_laws', JSON.stringify(savedLawIds));
+        }
+
+        function handleGlobalSearch(val) {
+            searchQuery = val;
+            syncSearchInputs(val);
+
+            const q = buildSearchQuery(val, currentCategory);
+
+            // Atajo de artículo mientras escribe
+            renderDirectArticleResult(val);
+
+            clearTimeout(googleSearchDebounceTimer);
+            googleSearchDebounceTimer = setTimeout(() => {
+                if (q) {
+                    runGoogleSearch(q);
+                } else {
+                    runGoogleSearch('');
+                }
+            }, 450);
+        }
+
+        function runSearchNow() {
+            clearTimeout(googleSearchDebounceTimer);
+            const val = (document.getElementById('headerSearch') || {}).value || searchQuery;
+            const q = buildSearchQuery(val, currentCategory);
+            renderDirectArticleResult(val);
+            runGoogleSearch(q);
+        }
+
+        function syncSearchInputs(val) {
+            const a = document.getElementById('headerSearch');
+            const b = document.getElementById('headerSearchMobile');
+            if (a && a.value !== val) a.value = val;
+            if (b && b.value !== val) b.value = val;
+        }
+
+        function clearSearch(resetCategory = true) {
+            searchQuery = '';
+            syncSearchInputs('');
+            if (resetCategory) {
+                currentCategory = 'todos';
+                setActiveCategoryButton('todos');
+            }
+            closeArticleViewer();
+            runGoogleSearch('');
+            document.getElementById('resultsCountHeader').innerText = 'Explora la normatividad colombiana';
+        }
+
+        function resetToHome() {
+            clearSearch(true);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function runPresetSearch(query) {
+            searchQuery = query;
+            syncSearchInputs(query);
+            currentCategory = 'todos';
+            setActiveCategoryButton('todos');
+            renderDirectArticleResult(query);
+            runGoogleSearch(query);
+            document.getElementById('headerSearch')?.focus();
+        }
+
+        // ─────────────────────────────────────────────────────────────
+        // Guardados (cualquier artículo de Google / atajo)
+        // ─────────────────────────────────────────────────────────────
+        function toggleBookmarkCurrentArticle() {
+            if (!currentArticleMeta || !currentArticleMeta.url) {
+                showToast('No hay artículo activo para guardar');
+                return;
+            }
+            const idx = savedItems.findIndex(s => s.url === currentArticleMeta.url);
+            if (idx > -1) {
+                savedItems.splice(idx, 1);
+                showToast('Lectura retirada de guardados');
+            } else {
+                savedItems.unshift({
+                    id: uid(),
+                    title: currentArticleMeta.title,
+                    url: currentArticleMeta.url,
+                    snippet: currentArticleMeta.snippet || '',
+                    savedAt: new Date().toISOString()
+                });
+                showToast('Artículo guardado en tus lecturas');
+            }
+            safeStorage.setItem('lex_saved_items', JSON.stringify(savedItems));
             updateSavedCount();
-            renderLaws();
-            if(activeLawModal && activeLawModal.id === id) {
-                updateModalBookmarkBtn();
+            // Refrescar icono del visor
+            const btn = document.getElementById('articleBookmarkBtn');
+            if (btn) {
+                const saved = isSavedUrl(currentArticleMeta.url);
+                btn.innerHTML = `<i class="${saved ? 'fa-solid fa-bookmark text-emerald-600' : 'fa-regular fa-bookmark'}"></i>`;
             }
         }
 
-        function toggleBookmarkCurrent() {
-            if(activeLawModal) {
-                toggleBookmark(activeLawModal.id);
-            }
-        }
-
-        function updateModalBookmarkBtn() {
-            if(!activeLawModal) return;
-            const isSaved = savedLawIds.includes(activeLawModal.id);
-            const btn = document.getElementById('modalBookmarkBtn');
-            btn.innerHTML = `<i class="${isSaved ? 'fa-solid fa-bookmark text-emerald-600' : 'fa-regular fa-bookmark'}"></i>`;
+        function removeSavedById(id) {
+            savedItems = savedItems.filter(s => s.id !== id);
+            safeStorage.setItem('lex_saved_items', JSON.stringify(savedItems));
+            updateSavedCount();
+            openReadingListModal();
+            showToast('Lectura eliminada');
         }
 
         function updateSavedCount() {
-            document.getElementById('savedCount').innerText = savedLawIds.length;
+            document.getElementById('savedCount').innerText = savedItems.length;
         }
 
         function openReadingListModal() {
             const container = document.getElementById('savedLawsContainer');
-            const savedList = lawsDatabase.filter(l => savedLawIds.includes(l.id));
-
-            if(savedList.length === 0) {
-                container.innerHTML = `<p class="text-xs text-slate-500 text-center py-6">No tienes normas guardadas todavía. Haz clic en el marcador de cualquier ley para guardarla aquí.</p>`;
+            if (savedItems.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-500 text-center py-6">No tienes lecturas guardadas. Abre un artículo desde los resultados y pulsa el marcador para guardarlo aquí.</p>`;
             } else {
-                container.innerHTML = savedList.map(law => `
-                    <div class="p-3.5 bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-between">
-                        <div class="cursor-pointer overflow-hidden pr-3" onclick="closeReadingListModal(); openLawModal(${law.id});">
-                            <span class="text-[10px] font-bold text-emerald-600">${law.code}</span>
-                            <h4 class="font-bold text-xs text-slate-800 dark:text-slate-200 truncate">${law.title}</h4>
+                container.innerHTML = savedItems.map(item => `
+                    <div class="p-3.5 bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl flex items-start justify-between gap-2">
+                        <div class="cursor-pointer overflow-hidden pr-2 flex-1" onclick="closeReadingListModal(); openSavedItem('${escapeHtml(item.url)}');">
+                            <h4 class="font-bold text-xs text-slate-800 dark:text-slate-200 line-clamp-2">${escapeHtml(item.title)}</h4>
+                            <p class="text-[10px] text-slate-500 mt-1 truncate">${escapeHtml(item.url)}</p>
                         </div>
-                        <button onclick="toggleBookmark(${law.id}); openReadingListModal();" class="text-slate-400 hover:text-red-500 p-2">
+                        <button onclick="removeSavedById('${item.id}')" class="text-slate-400 hover:text-red-500 p-2 flex-shrink-0" title="Eliminar">
                             <i class="fa-solid fa-trash-can text-xs"></i>
                         </button>
                     </div>
@@ -1156,11 +1075,68 @@
             document.getElementById('readingListModal').classList.add('hidden');
         }
 
-        // AI Assistant modal & Quick AI
+        function openSavedItem(url) {
+            if (url.includes('leyes.co')) {
+                openResultInline(url);
+            } else {
+                window.open(url, '_blank', 'noopener,noreferrer');
+            }
+        }
+
+        // ─────────────────────────────────────────────────────────────
+        // UI home: explorar + tendencias + ejemplos
+        // ─────────────────────────────────────────────────────────────
+        function renderExploreGrid() {
+            const grid = document.getElementById('exploreGrid');
+            grid.innerHTML = EXPLORE_CODES.map(c => `
+                <button onclick="runPresetSearch('${escapeHtml(c.query)}')" class="text-left p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/20 transition-all group">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center">
+                            <i class="fa-solid ${c.icon} text-sm"></i>
+                        </div>
+                        <span class="font-semibold text-xs sm:text-sm text-slate-800 dark:text-slate-200 group-hover:text-emerald-600">${escapeHtml(c.label)}</span>
+                    </div>
+                </button>
+            `).join('');
+        }
+
+        function renderTrending() {
+            const container = document.getElementById('trendingList');
+            container.innerHTML = TRENDING_SEARCHES.map((item, idx) => `
+                <div onclick="runPresetSearch('${escapeHtml(item.query)}')" class="flex items-start space-x-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-all">
+                    <span class="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 font-bold text-xs flex items-center justify-center flex-shrink-0">0${idx + 1}</span>
+                    <div class="overflow-hidden">
+                        <h4 class="font-bold text-xs text-slate-800 dark:text-slate-200">${escapeHtml(item.title)}</h4>
+                        <p class="text-[10px] text-slate-500">Buscar en fuentes oficiales</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderExampleQueries() {
+            const box = document.getElementById('exampleQueries');
+            box.innerHTML = EXAMPLE_QUERIES.map(q => `
+                <button onclick="runPresetSearch('${escapeHtml(q)}')" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs text-slate-600 dark:text-slate-300 hover:bg-emerald-100 dark:hover:bg-emerald-950 hover:text-emerald-700 dark:hover:text-emerald-400 transition-all border border-slate-200 dark:border-slate-700">
+                    ${escapeHtml(q)}
+                </button>
+            `).join('');
+        }
+
+        // ─────────────────────────────────────────────────────────────
+        // Tema, IA, calculadora, toast
+        // ─────────────────────────────────────────────────────────────
+        function toggleTheme() {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            const icon = document.getElementById('themeIcon');
+            icon.className = isDark ? 'fa-solid fa-sun text-amber-400' : 'fa-solid fa-moon text-slate-600';
+            showToast(isDark ? 'Modo oscuro activado' : 'Modo claro activado');
+        }
+
         function openConsultationModal() {
             document.getElementById('consultationModal').classList.remove('hidden');
         }
-
         function closeConsultationModal() {
             document.getElementById('consultationModal').classList.add('hidden');
         }
@@ -1168,121 +1144,98 @@
         function runQuickAi() {
             const input = document.getElementById('quickAiQuery').value.trim();
             const resBox = document.getElementById('quickAiResult');
-            if(!input) {
-                showToast("Por favor ingresa una pregunta");
-                return;
-            }
-
+            if (!input) { showToast('Por favor ingresa una pregunta'); return; }
             resBox.classList.remove('hidden');
             resBox.innerHTML = `<div class="flex items-center space-x-2 text-emerald-600"><i class="fa-solid fa-spinner fa-spin"></i><span>Analizando base legal colombiana...</span></div>`;
-
             setTimeout(() => {
-                resBox.innerHTML = `<strong>Análisis IA para "${input}":</strong> Conforme al Código Sustantivo del Trabajo y la Constitución de Colombia, toda persona tiene derecho a garantías laborales irrenunciables, primacía de la realidad sobre las formalidades y remuneración proporcional. <em>(Recomendación: Consulta con un abogado colegiado para casos particulares).</em>`;
+                resBox.innerHTML = `<strong>Análisis orientativo para «${escapeHtml(input)}»:</strong> Conforme a los principios de la Constitución de Colombia y los códigos especiales (Civil, Penal, Laboral, Comercio), te recomendamos contrastar el texto oficial del artículo aplicable. <em>Esta respuesta es orientativa; consulta a un abogado colegiado para tu caso concreto.</em>`;
             }, 1000);
         }
 
         function sendChatMessage() {
             const inputEl = document.getElementById('chatInput');
             const text = inputEl.value.trim();
-            if(!text) return;
-
+            if (!text) return;
             const chatMessages = document.getElementById('chatMessages');
-            
-            // Append User message
             chatMessages.innerHTML += `
                 <div class="flex items-start justify-end space-x-3">
-                    <div class="bg-emerald-600 text-white p-3.5 rounded-2xl rounded-tr-none text-xs sm:text-sm max-w-[85%] leading-relaxed">
-                        ${text}
-                    </div>
+                    <div class="bg-emerald-600 text-white p-3.5 rounded-2xl rounded-tr-none text-xs sm:text-sm max-w-[85%] leading-relaxed">${escapeHtml(text)}</div>
                     <div class="w-8 h-8 rounded-full bg-slate-700 text-white flex items-center justify-center flex-shrink-0 font-bold text-xs">U</div>
-                </div>
-            `;
+                </div>`;
             inputEl.value = '';
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            // Simulate AI response
             setTimeout(() => {
-                let aiReply = "Basado en la normatividad colombiana vigente, este asunto está regulado por los principios constitucionales y los códigos especiales. Te sugiero revisar las sentencias de unificación de la Corte Suprema o Consejo de Estado aplicables.";
-                if(text.toLowerCase().includes('tutela')) {
-                    aiReply = "La acción de tutela procede contra cualquier autoridad pública (y particulares en ciertos casos) para la protección inmediata de derechos fundamentales cuando estos resulten vulnerados o amenazados (Artículo 86 Constitucional).";
-                } else if(text.toLowerCase().includes('despido')) {
-                    aiReply = "El despido sin justa causa en Colombia da lugar al pago de una indemnización tasada según el tipo de contrato (término fijo o indefinido) y el tiempo laborado, conforme al artículo 64 del Código Sustantivo del Trabajo.";
+                let aiReply = 'Basado en la normatividad colombiana vigente, te sugiero buscar el artículo concreto con el buscador (ej. «artículo 64 código sustantivo del trabajo») y revisar el texto oficial. Para casos particulares, consulta a un abogado colegiado.';
+                const low = text.toLowerCase();
+                if (low.includes('tutela')) {
+                    aiReply = 'La acción de tutela (Artículo 86 de la Constitución) procede contra autoridades públicas y, en ciertos casos, particulares, para proteger de forma inmediata derechos fundamentales cuando resulten vulnerados o amenazados.';
+                } else if (low.includes('despido')) {
+                    aiReply = 'El despido sin justa causa en Colombia genera indemnización según el tipo de contrato y el tiempo laborado (art. 64 del Código Sustantivo del Trabajo). Busca «artículo 64 código sustantivo del trabajo» para leer el texto oficial.';
                 }
-
                 chatMessages.innerHTML += `
                     <div class="flex items-start space-x-3">
                         <div class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 font-bold text-xs">LEX</div>
-                        <div class="bg-slate-100 dark:bg-slate-800 p-3.5 rounded-2xl rounded-tl-none text-slate-700 dark:text-slate-300 max-w-[85%] leading-relaxed">
-                            ${aiReply}
-                        </div>
-                    </div>
-                `;
+                        <div class="bg-slate-100 dark:bg-slate-800 p-3.5 rounded-2xl rounded-tl-none text-slate-700 dark:text-slate-300 max-w-[85%] leading-relaxed">${aiReply}</div>
+                    </div>`;
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }, 800);
         }
 
-        // Legal Deadline Calculator
         function calculateLegalDeadline() {
             const startDateVal = document.getElementById('calcStartDate').value;
             const daysCount = parseInt(document.getElementById('calcDays').value) || 1;
             const resultBox = document.getElementById('calcResult');
+            if (!startDateVal) { showToast('Selecciona una fecha inicial'); return; }
 
-            if(!startDateVal) {
-                showToast("Selecciona una fecha inicial");
-                return;
-            }
-
-            let dateObj = new Date(startDateVal);
+            let dateObj = new Date(startDateVal + 'T12:00:00');
             let addedDays = 0;
-
-            // Simple business day approximation (skipping weekends)
-            while(addedDays < daysCount) {
+            while (addedDays < daysCount) {
                 dateObj.setDate(dateObj.getDate() + 1);
                 const dayOfWeek = dateObj.getDay();
-                // 0 is Sunday, 6 is Saturday
-                if(dayOfWeek !== 0 && dayOfWeek !== 6) {
-                    addedDays++;
-                }
+                if (dayOfWeek !== 0 && dayOfWeek !== 6) addedDays++;
             }
-
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const formattedDate = dateObj.toLocaleDateString('es-CO', options);
-
+            const formattedDate = dateObj.toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
             resultBox.classList.remove('hidden');
-            resultBox.innerHTML = `Fecha de Vencimiento Hábil:<br/><strong class="text-sm">${formattedDate}</strong>`;
+            resultBox.innerHTML = `Fecha de Vencimiento Hábil:<br/><strong class="text-sm">${formattedDate}</strong><br/><span class="text-[10px] opacity-80">No incluye festivos nacionales</span>`;
         }
 
-        // Share Law Link
-        function shareLaw() {
-            if(!activeLawModal) return;
-            const dummy = window.location.href;
-            document.execCommand('copy');
-            showToast("Enlace de la norma copiado al portapapeles");
-        }
-
-        // Newsletter subscription
         function handleSubscribe(e) {
             e.preventDefault();
-            showToast("¡Te has suscrito exitosamente al boletín jurídico!");
+            showToast('¡Te has suscrito exitosamente al boletín jurídico!');
             e.target.reset();
         }
 
-        // Toast notification helper
         function showToast(msg) {
             const toast = document.getElementById('toast');
             document.getElementById('toastMsg').innerText = msg;
             toast.classList.remove('translate-y-20', 'opacity-0');
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
         }
 
-        // Load more laws button simulation
-        function loadMoreLaws() {
-            showToast("Todas las normas prioritarias ya están cargadas");
-        }
+        // ─────────────────────────────────────────────────────────────
+        // Init + deep-link ?q=
+        // ─────────────────────────────────────────────────────────────
+        window.addEventListener('DOMContentLoaded', () => {
+            renderExploreGrid();
+            renderTrending();
+            renderExampleQueries();
+            updateSavedCount();
+
+            const todayStr = new Date().toISOString().split('T')[0];
+            const dateEl = document.getElementById('calcStartDate');
+            if (dateEl) dateEl.value = todayStr;
+
+            // Deep link: ?q=artículo+34+cgp
+            const params = new URLSearchParams(window.location.search);
+            const qParam = params.get('q');
+            if (qParam) {
+                runPresetSearch(qParam);
+            }
+        });
     </script>
     <!-- Google Programmable Search Engine (leyes.co + secretariasenado.gov.co) -->
     <script async src="https://cse.google.com/cse.js?cx=73873d429e2bf4f88"></script>
 </body>
 </html>
+
