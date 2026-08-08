@@ -164,17 +164,19 @@
                     </div>
                 </div>
 
-                <!-- Google Programmable Search Engine (buscador oficial de Google, código tal cual lo genera su panel) -->
-                <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+                <!-- Article Viewer: muestra el texto del artículo directamente en tu página,
+                     ya sea por atajo directo o al hacer clic en un resultado de Google -->
+                <div id="articleViewer" class="hidden"></div>
+
+                <!-- Google Programmable Search Engine — resultados en línea (sin ventana superpuesta),
+                     controlado por el buscador de tu header. -->
+                <div id="googleResultsWrapper" class="hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
                     <div class="flex items-center space-x-2 mb-3">
                         <i class="fa-brands fa-google text-emerald-600"></i>
-                        <span class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">Buscar en Google (leyes.co + secretariasenado.gov.co)</span>
+                        <span class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">Resultados de búsqueda</span>
                     </div>
-                    <div class="gcse-search"></div>
+                    <div id="gcseResultsBox"></div>
                 </div>
-
-                <!-- Direct Article Result (shown only when a specific "artículo" is detected in the search) -->
-                <div id="directArticleResult" class="hidden"></div>
 
                 <!-- Laws Feed -->
                 <div id="lawsContainer" class="space-y-4">
@@ -610,41 +612,6 @@
             };
         }
 
-        function renderDirectArticleResult(rawQuery) {
-            const box = document.getElementById('directArticleResult');
-            const result = detectArticleQuery(rawQuery);
-
-            if (!result) {
-                box.classList.add('hidden');
-                box.innerHTML = '';
-                return;
-            }
-
-            box.classList.remove('hidden');
-            box.innerHTML = `
-                <div class="bg-white dark:bg-slate-900 border-2 border-emerald-500 rounded-2xl p-6 shadow-sm space-y-3">
-                    <div class="flex items-center space-x-2">
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span class="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">${result.norma ? 'Atajo directo' : 'Búsqueda de artículo detectada'}</span>
-                    </div>
-                    <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                        Artículo ${result.articleNum}${result.norma ? ' &middot; ' + result.norma.label : ''}
-                    </h3>
-                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                        ${result.norma
-                            ? 'Salta directo al texto vigente de este artículo en la fuente oficial.'
-                            : `Indícanos a qué código o ley pertenece (ej. "artículo ${result.articleNum} código civil") para saltar directo, o revisa los resultados de búsqueda abajo.`}
-                    </p>
-                    <div class="flex flex-wrap items-center gap-3 pt-1">
-                        <a href="${result.directUrl || result.fallbackUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold text-sm px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            <span>${result.norma ? `Ver Artículo ${result.articleNum} completo` : `Buscar Artículo ${result.articleNum}`}</span>
-                        </a>
-                    </div>
-                </div>
-            `;
-        }
-
         // Proxy público que permite hacer fetch de otro dominio desde el navegador
         // (leyes.co no expone CORS, así que necesitamos un intermediario servidor-a-servidor
         // para poder mostrar el texto DENTRO de tu página en vez de solo enlazar afuera).
@@ -658,7 +625,7 @@
         }
 
         // Descarga el HTML de la página del artículo y extrae solo el texto de la norma (div#statya),
-        // dejando fuera anuncios, comentarios y menús.
+        // dejando fuera anuncios, comentarios y menús. Funciona para páginas de leyes.co.
         async function fetchArticleText(url) {
             const res = await fetch(CORS_PROXY + encodeURIComponent(url));
             if (!res.ok) throw new Error('No se pudo contactar la fuente oficial');
@@ -686,13 +653,13 @@
 
         let articleRequestId = 0;
 
-        function renderArticleLoadingCard(result) {
-            const box = document.getElementById('directArticleResult');
+        function renderArticleLoadingCard(badgeText) {
+            const box = document.getElementById('articleViewer');
             box.innerHTML = `
                 <div class="bg-white dark:bg-slate-900 border-2 border-emerald-500 rounded-2xl p-6 shadow-sm space-y-3">
                     <div class="flex items-center space-x-2">
                         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span class="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">Cargando Artículo ${result.articleNum} &middot; ${result.norma.label}...</span>
+                        <span class="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">${escapeHtml(badgeText)}</span>
                     </div>
                     <div class="h-3 bg-slate-100 dark:bg-slate-800 rounded-full w-3/4 animate-pulse"></div>
                     <div class="h-3 bg-slate-100 dark:bg-slate-800 rounded-full w-full animate-pulse"></div>
@@ -701,20 +668,25 @@
             `;
         }
 
-        function renderArticleFoundCard(result, content) {
-            const box = document.getElementById('directArticleResult');
+        function renderArticleFoundCard(badgeText, directUrl, content) {
+            const box = document.getElementById('articleViewer');
             box.innerHTML = `
                 <div class="bg-white dark:bg-slate-900 border-2 border-emerald-500 rounded-2xl p-6 shadow-sm space-y-3">
-                    <div class="flex items-center space-x-2">
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span class="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">${result.norma.label} &middot; Resultado directo</span>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">${escapeHtml(badgeText)}</span>
+                        </div>
+                        <button onclick="closeArticleViewer()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm" aria-label="Cerrar">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
                     </div>
                     <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                        ${escapeHtml(content.titleText || ('Artículo ' + result.articleNum))}
+                        ${escapeHtml(content.titleText || 'Artículo')}
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line">${escapeHtml(content.bodyText)}</p>
                     <div class="flex flex-wrap items-center gap-3 pt-3 border-t border-slate-100 dark:border-slate-800/85">
-                        <a href="${result.directUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline">
+                        <a href="${directUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             <span>Ver fuente oficial completa</span>
                         </a>
@@ -723,34 +695,40 @@
             `;
         }
 
-        function renderArticleLinkOnlyCard(result, { failed } = {}) {
-            const box = document.getElementById('directArticleResult');
+        function renderArticleLinkOnlyCard(badgeText, articleLabel, description, ctaLabel, url) {
+            const box = document.getElementById('articleViewer');
             box.innerHTML = `
                 <div class="bg-white dark:bg-slate-900 border-2 border-emerald-500 rounded-2xl p-6 shadow-sm space-y-3">
-                    <div class="flex items-center space-x-2">
-                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span class="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">${result.norma ? 'Resultado directo encontrado' : 'Búsqueda de artículo detectada'}</span>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">${escapeHtml(badgeText)}</span>
+                        </div>
+                        <button onclick="closeArticleViewer()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm" aria-label="Cerrar">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
                     </div>
-                    <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                        Artículo ${result.articleNum}${result.norma ? ' &middot; ' + result.norma.label : ''}
-                    </h3>
-                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                        ${failed
-                            ? 'No pudimos cargar el texto automáticamente en este momento (el servicio intermediario puede estar ocupado). Ábrelo directamente en la fuente oficial:'
-                            : `Indícanos a qué código o ley pertenece (ej. "artículo ${result.articleNum} código civil") para mostrarte el texto, o búscalo en el buscador de arriba:`}
-                    </p>
+                    <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">${escapeHtml(articleLabel)}</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${description}</p>
                     <div class="flex flex-wrap items-center gap-3 pt-1">
-                        <a href="${result.directUrl || result.fallbackUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold text-sm px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                        <a href="${url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold text-sm px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            <span>${result.norma ? `Ver Artículo ${result.articleNum} completo` : `Buscar Artículo ${result.articleNum}`}</span>
+                            <span>${escapeHtml(ctaLabel)}</span>
                         </a>
                     </div>
                 </div>
             `;
         }
 
+        function closeArticleViewer() {
+            const box = document.getElementById('articleViewer');
+            box.classList.add('hidden');
+            box.innerHTML = '';
+        }
+
+        // Atajo directo: se dispara mientras escribes en el buscador si detecta "artículo N + norma"
         async function renderDirectArticleResult(rawQuery) {
-            const box = document.getElementById('directArticleResult');
+            const box = document.getElementById('articleViewer');
             const result = detectArticleQuery(rawQuery);
             const myRequestId = ++articleRequestId;
 
@@ -763,20 +741,120 @@
             box.classList.remove('hidden');
 
             if (!result.norma) {
-                renderArticleLinkOnlyCard(result);
+                renderArticleLinkOnlyCard(
+                    'Búsqueda de artículo detectada',
+                    `Artículo ${result.articleNum}`,
+                    `Indícanos a qué código o ley pertenece (ej. "artículo ${result.articleNum} código civil") para mostrarte el texto, o revisa los resultados de búsqueda abajo.`,
+                    `Buscar Artículo ${result.articleNum}`,
+                    result.fallbackUrl
+                );
                 return;
             }
 
-            renderArticleLoadingCard(result);
+            renderArticleLoadingCard(`Cargando Artículo ${result.articleNum} · ${result.norma.label}...`);
 
             try {
                 const content = await fetchArticleText(result.directUrl);
                 if (myRequestId !== articleRequestId) return;
-                renderArticleFoundCard(result, content);
+                renderArticleFoundCard(`${result.norma.label} · Atajo directo`, result.directUrl, content);
             } catch (err) {
                 if (myRequestId !== articleRequestId) return;
-                renderArticleLinkOnlyCard(result, { failed: true });
+                renderArticleLinkOnlyCard(
+                    'Atajo directo encontrado',
+                    `Artículo ${result.articleNum} · ${result.norma.label}`,
+                    'No pudimos cargar el texto automáticamente en este momento (el servicio intermediario puede estar ocupado). Ábrelo directamente en la fuente oficial:',
+                    `Ver Artículo ${result.articleNum} completo`,
+                    result.directUrl
+                );
             }
+        }
+
+        // Al hacer clic en un resultado de Google que apunta a leyes.co, mostramos el
+        // artículo dentro de la página en vez de navegar afuera. Otros dominios (ej.
+        // secretariasenado.gov.co) no tienen una estructura de página predecible para
+        // extraer, así que esos se abren en pestaña nueva para no perder tu sitio.
+        async function openResultInline(url) {
+            const box = document.getElementById('articleViewer');
+            const myRequestId = ++articleRequestId;
+
+            box.classList.remove('hidden');
+            box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            renderArticleLoadingCard('Cargando resultado...');
+
+            try {
+                const content = await fetchArticleText(url);
+                if (myRequestId !== articleRequestId) return;
+                renderArticleFoundCard('Resultado de búsqueda', url, content);
+            } catch (err) {
+                if (myRequestId !== articleRequestId) return;
+                renderArticleLinkOnlyCard(
+                    'Resultado de búsqueda',
+                    'No se pudo cargar el texto',
+                    'No pudimos mostrar el texto automáticamente en este momento. Ábrelo directamente:',
+                    'Ver página completa',
+                    url
+                );
+            }
+        }
+
+        // Intercepta los clics dentro de los resultados de Google
+        document.addEventListener('click', function (e) {
+            const resultsBox = document.getElementById('gcseResultsBox');
+            if (!resultsBox || !resultsBox.contains(e.target)) return;
+            const link = e.target.closest('a[href]');
+            if (!link) return;
+            const href = link.href;
+            if (!href) return;
+
+            if (href.startsWith('https://leyes.co/') || href.startsWith('http://leyes.co/')) {
+                e.preventDefault();
+                openResultInline(href);
+            } else {
+                // Otros dominios (secretariasenado.gov.co, etc.): abrir en pestaña nueva
+                // para no sacar al usuario de la aplicación.
+                e.preventDefault();
+                window.open(href, '_blank', 'noopener,noreferrer');
+            }
+        }, true);
+
+        // ---------------------------------------------------------------
+        // Google Programmable Search Engine — modo "results only", controlado
+        // por el buscador de tu header (sin caja propia de Google, sin overlay).
+        // ---------------------------------------------------------------
+        let googleSearchReady = false;
+        let pendingGoogleQuery = '';
+        let googleSearchDebounceTimer = null;
+
+        window.__gcse = {
+            parsetags: 'explicit',
+            callback: function () {
+                google.search.cse.element.render({
+                    div: 'gcseResultsBox',
+                    tag: 'searchresults-only',
+                    gname: 'lexResults'
+                });
+                googleSearchReady = true;
+                if (pendingGoogleQuery) {
+                    runGoogleSearch(pendingGoogleQuery);
+                    pendingGoogleQuery = '';
+                }
+            }
+        };
+
+        function runGoogleSearch(query) {
+            const wrapper = document.getElementById('googleResultsWrapper');
+            if (!query) {
+                wrapper.classList.add('hidden');
+                return;
+            }
+            wrapper.classList.remove('hidden');
+
+            if (!googleSearchReady) {
+                pendingGoogleQuery = query;
+                return;
+            }
+            const element = google.search.cse.element.getElement('lexResults');
+            if (element) element.execute(query);
         }
 
         let searchQuery = '';
@@ -821,6 +899,13 @@
             searchQuery = val.toLowerCase().trim();
             renderDirectArticleResult(val);
             renderLaws();
+
+            // Debounce: esperamos a que el usuario deje de escribir antes de
+            // consumir una consulta de la cuota diaria del CSE.
+            clearTimeout(googleSearchDebounceTimer);
+            googleSearchDebounceTimer = setTimeout(() => {
+                runGoogleSearch(val.trim());
+            }, 500);
         }
 
         // Sort Laws
